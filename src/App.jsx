@@ -6,6 +6,15 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
+import Layout from '@/components/Layout';
+import Home from '@/pages/Home';
+import Events from '@/pages/Events';
+import SearchPage from '@/pages/Search';
+import EventDetail from '@/pages/EventDetail';
+import BookingSummary from '@/pages/BookingSummary';
+import BookingSuccess from '@/pages/BookingSuccess';
+import MyBookings from '@/pages/MyBookings';
+import Favorites from '@/pages/Favorites';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -35,6 +44,16 @@ const AuthenticatedApp = () => {
   return (
     <Routes>
       {/* Add your page Route elements here */}
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/event/:id" element={<EventDetail />} />
+        <Route path="/booking/summary" element={<BookingSummary />} />
+        <Route path="/booking/success" element={<BookingSuccess />} />
+        <Route path="/my-bookings" element={<MyBookings />} />
+        <Route path="/favorites" element={<Favorites />} />
+      </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
