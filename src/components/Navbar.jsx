@@ -1,6 +1,7 @@
 import { Search, Compass, CalendarCheck } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useFavoriteIds, useBookings } from "@/lib/useStore";
+import BrandLogo from "./BrandLogo";
 import { cn } from "@/lib/utils";
 
 const NAV = [
@@ -22,14 +23,10 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-violet-100 bg-white/85 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
-        <Link to="/" className="flex items-center gap-2.5">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-violet-600 to-cyan-500 text-white shadow-md">
-            <Compass size={20} />
-          </span>
-          <span className="font-display text-xl font-extrabold tracking-tight text-[#0F172A]">
-            Evently
-          </span>
-        </Link>
+        <BrandLogo
+          size={32}
+          textClass="font-display text-xl font-extrabold tracking-tight text-[#0F172A]"
+        />
 
         <nav className="hidden items-center gap-1 md:flex">
           {NAV.map((item) => {

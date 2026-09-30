@@ -1,20 +1,17 @@
 import { Link } from "react-router-dom";
-import { Compass, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
 import { useFavoriteIds } from "@/lib/useStore";
+import BrandLogo from "./BrandLogo";
 
 export default function MobileHeader() {
   const favIds = useFavoriteIds();
   return (
     <header className="sticky top-0 z-40 bg-twilight text-white">
       <div className="flex h-14 items-center justify-between px-4">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-violet-500 to-cyan-400">
-            <Compass size={18} />
-          </span>
-          <span className="font-display text-lg font-extrabold tracking-tight">
-            Evently
-          </span>
-        </Link>
+        <BrandLogo
+          size={28}
+          textClass="font-display text-base font-extrabold tracking-tight"
+        />
         <Link
           to="/favorites"
           className="relative grid h-9 w-9 place-items-center rounded-xl bg-white/10 text-white"
